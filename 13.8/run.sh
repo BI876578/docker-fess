@@ -108,6 +108,8 @@ if [ x"$RUN_FESS" != "xfalse" ] ; then
   start_fess
 fi
 
+/etc/init.d/kibana start
+
 if [ x"$RUN_SHELL" = "xtrue" ] ; then
   /bin/bash
 else
