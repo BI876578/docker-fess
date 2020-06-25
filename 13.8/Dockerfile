@@ -4,6 +4,11 @@ FROM amd64/adoptopenjdk:11-jre-hotspot-bionic
 
 ENV ANT_OPTS "-Dhttp.proxyHost=proxy.mei.co.jp -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxy.mei.co.jp -Dhttps.proxyPort=8080"
 
+RUN { \
+	echo 'Acquire::http::Proxy "http://proxy.mei.co.jp:8080";';
+	echo 'Acquire::https::Proxy "http://proxy.mei.co.jp:8080";';
+} >> /etc/apt/apt.conf
+
 ENV ES_DOWNLOAD_URL https://artifacts.elastic.co/downloads/elasticsearch
 ENV FESS_APP_TYPE docker
 
